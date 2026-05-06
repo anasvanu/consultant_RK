@@ -1278,10 +1278,40 @@
       }
     });
     if (!valid) return;
-    success.classList.add('show');
-    form.reset();
-    success.scrollIntoView({behavior:'smooth', block:'center'});
-    setTimeout(() => success.classList.remove('show'), 8000);
+
+    // Change the button text while submitting
+    const submitBtn = form.querySelector('.form-submit');
+    const originalBtnText = submitBtn.innerHTML;
+    submitBtn.innerHTML = 'Sending...';
+
+    const formData = new FormData(form);
+    // Add your Web3Forms Access Key here:
+    formData.append("access_key", "YOUR_WEB3FORMS_ACCESS_KEY_HERE");
+    formData.append("subject", "New Submission from Rajasekhar Kandepu Website");
+
+    fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
+    })
+    .then(async (response) => {
+        let json = await response.json();
+        if (response.status == 200) {
+            success.classList.add('show');
+            form.reset();
+            success.scrollIntoView({behavior:'smooth', block:'center'});
+            setTimeout(() => success.classList.remove('show'), 8000);
+        } else {
+            console.log(response);
+            alert("Error: " + json.message);
+        }
+    })
+    .catch(error => {
+        console.log(error);
+        alert("Something went wrong! Please try again later.");
+    })
+    .finally(() => {
+        submitBtn.innerHTML = originalBtnText;
+    });
   });
 </script>
 
