@@ -388,6 +388,54 @@
   .svc-item .txt{font-weight:400;line-height:1.4}
   @media (max-width:680px){.svc-list{grid-template-columns:1fr}}
 
+  /* ===== GALLERY ===== */
+  .gallery { background: var(--cream-dark); }
+  .gallery-filter {
+    display: flex; gap: 20px; justify-content: center; margin-bottom: 40px;
+    flex-wrap: wrap;
+  }
+  .filter-btn {
+    background: transparent; border: 1px solid var(--ink);
+    padding: 10px 24px; border-radius: 100px;
+    font-family: 'Inter', sans-serif; font-size: 0.8rem; text-transform: uppercase;
+    cursor: pointer; transition: all 0.3s; color: var(--ink);
+  }
+  .filter-btn.active, .filter-btn:hover {
+    background: var(--ink); color: var(--cream);
+  }
+  .gallery-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px;
+  }
+  .gallery-item {
+    position: relative; overflow: hidden; border-radius: 8px; aspect-ratio: 4/3;
+    display: none;
+    box-shadow: 0 10px 30px -10px rgba(26,31,44,0.15);
+  }
+  .gallery-item.show {
+    display: block; animation: panelIn .5s cubic-bezier(.2,.8,.2,1);
+  }
+  .gallery-item img {
+    width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s;
+  }
+  .gallery-item:hover img {
+    transform: scale(1.05);
+  }
+  .gallery-caption {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: linear-gradient(to top, rgba(26,31,44,0.9), transparent);
+    padding: 30px 20px 20px; color: var(--cream);
+    transform: translateY(10px); opacity: 0; transition: all 0.4s;
+  }
+  .gallery-item:hover .gallery-caption {
+    transform: translateY(0); opacity: 1;
+  }
+  .gallery-caption h4 {
+    font-family: 'Fraunces', serif; font-size: 1.1rem; font-weight: 500; margin-bottom: 4px;
+  }
+  .gallery-caption p {
+    font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--gold); text-transform: uppercase;
+  }
+
   /* ===== CLIENTS — RIBBONS ===== */
   .clients{
     background:var(--ink);color:var(--cream);
@@ -726,6 +774,7 @@
         <li><a href="#about">About</a></li>
         <li><a href="#expertise">Expertise</a></li>
         <li><a href="#services">Services</a></li>
+        <li><a href="#gallery">Gallery</a></li>
         <li><a href="#clients">Clients</a></li>
         <li><a href="#awards">Recognition</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -973,6 +1022,79 @@
           <div class="svc-item"><span class="arrow">→</span><span class="txt">Detective & Discreet Investigations</span></div>
           <div class="svc-item"><span class="arrow">→</span><span class="txt">Compliance Reviews</span></div>
           <div class="svc-item"><span class="arrow">→</span><span class="txt">Legal Advisory — Employment Law</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery section-pad" id="gallery">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">Program Engagements</div>
+      <h2 class="section-title">Leadership in <em>Action</em>.</h2>
+      <p class="section-sub">Moments from Senior and Young Leadership Development Programs.</p>
+    </div>
+
+    <div class="gallery-filter reveal">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="sldp">SLDP</button>
+      <button class="filter-btn" data-filter="yldp">YLDP</button>
+    </div>
+
+    <div class="gallery-grid reveal-stagger" id="gallery-grid">
+      <!-- SLDP Images -->
+      <div class="gallery-item sldp show">
+        <img src="assets/images/gallery/sldp/sldp-1.jpeg" alt="SLDP Engagement" loading="lazy">
+        <div class="gallery-caption">
+          <h4>Power Mech Projects</h4>
+          <p>SLDP Session</p>
+        </div>
+      </div>
+      <div class="gallery-item sldp show">
+        <img src="assets/images/gallery/sldp/sldp-2.jpeg" alt="SLDP Engagement" loading="lazy">
+        <div class="gallery-caption">
+          <h4>Power Mech Projects</h4>
+          <p>SLDP Session</p>
+        </div>
+      </div>
+      <div class="gallery-item sldp show">
+        <img src="assets/images/gallery/sldp/sldp-3.jpeg" alt="SLDP Engagement" loading="lazy">
+        <div class="gallery-caption">
+          <h4>Power Mech Projects</h4>
+          <p>SLDP Session</p>
+        </div>
+      </div>
+      <div class="gallery-item sldp show">
+        <img src="assets/images/gallery/sldp/sldp-4.jpeg" alt="SLDP Engagement" loading="lazy">
+        <div class="gallery-caption">
+          <h4>Power Mech Projects</h4>
+          <p>SLDP Session</p>
+        </div>
+      </div>
+
+      
+      <!-- YLDP Images (Placeholders) -->
+      <div class="gallery-item yldp show">
+        <img src="assets/images/gallery/yldp/yldp-1.jpeg" alt="YLDP Engagement" loading="lazy">
+        <div class="gallery-caption">
+          <h4>Power Mech Projects</h4>
+          <p>YLDP Session</p>
+        </div>
+      </div>
+      <div class="gallery-item yldp show">
+        <img src="assets/images/gallery/yldp/yldp-2.jpeg" alt="YLDP Engagement" loading="lazy">
+        <div class="gallery-caption">
+          <h4>Power Mech Projects</h4>
+          <p>YLDP Session</p>
+        </div>
+      </div>
+      <div class="gallery-item yldp show">
+        <img src="assets/images/gallery/yldp/yldp-3.jpeg" alt="YLDP Engagement" loading="lazy">
+        <div class="gallery-caption">
+          <h4>Power Mech Projects</h4>
+          <p>YLDP Session</p>
         </div>
       </div>
     </div>
@@ -1228,6 +1350,25 @@
       document.querySelectorAll('.svc-panel').forEach(p => p.classList.remove('active'));
       tab.classList.add('active');
       document.querySelector('.svc-panel[data-panel="' + target + '"]').classList.add('active');
+    });
+  });
+
+  // ===== Gallery Filter =====
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const galleryItems = document.querySelectorAll('.gallery-item');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      
+      galleryItems.forEach(item => {
+        item.classList.remove('show');
+        if (filter === 'all' || item.classList.contains(filter)) {
+          setTimeout(() => item.classList.add('show'), 10);
+        }
+      });
     });
   });
 
