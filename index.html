@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rajasekhar Kandepu — Strategy, OD & Leadership Coach</title>
+<title>Ridge Tower — Headhunting & Management Consulting</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -258,33 +258,73 @@
     margin-top:14px;max-width:680px;line-height:1.55;
   }
 
-  /* ===== ABOUT ===== */
-  .about{background:var(--paper)}
-  .about-cols{
-    display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;
+  /* ===== PORTFOLIO ===== */
+  .portfolio{background:var(--paper)}
+  .portfolio-grid{
+    display:grid;grid-template-columns:repeat(3, 1fr);gap:32px;align-items:stretch;
   }
-  .about-col p{
-    font-size:1.12rem;line-height:1.65;color:var(--ink-soft);
-    margin-bottom:16px;
+  .portfolio-card{
+    background:var(--cream);border-radius:12px;overflow:hidden;
+    box-shadow:0 12px 24px -12px rgba(26,31,44,0.15);
+    transition:transform .4s, box-shadow .4s;
+    display:flex;flex-direction:column;
   }
-  .about-col p strong{
-    color:var(--ink);font-weight:600;
-    background:linear-gradient(180deg, transparent 65%, rgba(184,146,74,0.25) 65%);
-    padding:0 2px;
+  .portfolio-card:hover{
+    transform:translateY(-8px);box-shadow:0 24px 48px -12px rgba(26,31,44,0.25);
   }
-  .pull-quote{
-    margin:28px 0;padding:20px 0 20px 24px;
-    border-left:3px solid var(--crimson);
-    font-family:'Fraunces',serif;font-size:1.4rem;font-style:italic;
-    line-height:1.4;color:var(--ink);font-weight:400;
-    position:relative;
+  .portfolio-img{
+    width:100%;aspect-ratio:4/3;overflow:hidden;
   }
-  .pull-quote::before{
-    content:'"';font-size:2.5rem;color:var(--crimson);
-    line-height:0;vertical-align:-0.4em;margin-right:6px;
+  .portfolio-img img{
+    width:100%;height:100%;object-fit:cover;transition:transform .6s ease;
   }
-  @media (max-width:820px){
-    .about-cols{grid-template-columns:1fr;gap:24px}
+  .portfolio-card:hover .portfolio-img img{transform:scale(1.05)}
+  .portfolio-content{
+    padding:32px 24px;flex-grow:1;display:flex;flex-direction:column;
+  }
+  .portfolio-content h3{
+    font-family:'Fraunces',serif;font-size:1.4rem;font-weight:500;
+    line-height:1.2;color:var(--ink);margin-bottom:16px;
+  }
+  .portfolio-content p{
+    font-size:1.05rem;line-height:1.6;color:var(--ink-soft);margin:0;
+  }
+  @media (max-width:980px){.portfolio-grid{grid-template-columns:1fr 1fr}}
+  @media (max-width:680px){.portfolio-grid{grid-template-columns:1fr}}
+
+  /* ===== TAT SECTION ===== */
+  .tat{background:var(--cream)}
+  .tat-layout{
+    display:grid;grid-template-columns:1.2fr 2fr;gap:48px;align-items:start;
+  }
+  .tat-sidebar{
+    background:var(--paper);padding:40px;border-top:4px solid var(--crimson);
+    box-shadow:0 10px 30px -10px rgba(0,0,0,0.05);
+  }
+  .tat-sidebar p{
+    font-size:1.02rem;line-height:1.65;color:var(--ink-soft);margin-bottom:16px;
+  }
+  .tat-content{
+    display:flex;flex-direction:column;gap:32px;
+  }
+  .tat-block{
+    background:var(--paper);padding:32px;
+    border-left:3px solid var(--gold);
+    transition:transform .3s, box-shadow .3s;
+  }
+  .tat-block:hover{
+    transform:translateX(5px);box-shadow:0 8px 20px -8px rgba(0,0,0,0.1);
+  }
+  .tat-block h4{
+    font-family:'Fraunces',serif;font-size:1.25rem;font-weight:600;
+    color:var(--ink);margin-bottom:12px;letter-spacing:-0.01em;
+  }
+  .tat-block p{
+    font-size:1.05rem;line-height:1.6;color:var(--ink-soft);margin-bottom:12px;
+  }
+  .tat-block p:last-child{margin-bottom:0}
+  @media (max-width:980px){
+    .tat-layout{grid-template-columns:1fr;gap:32px}
   }
 
   /* ===== EXPERTISE ===== */
@@ -766,12 +806,13 @@
 <header class="topbar">
   <div class="topbar-inner">
     <div class="brand">
-      <span>Rajasekhar Kandepu</span>
-      <span class="mono">Strategy · OD · Coaching</span>
+      <span>Ridge Tower</span>
+      <span class="mono">Headhunting & Management Consulting</span>
     </div>
     <nav>
       <ul class="navlinks">
-        <li><a href="#about">About</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#tat">Training</a></li>
         <li><a href="#expertise">Expertise</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#gallery">Gallery</a></li>
@@ -788,18 +829,15 @@
 <section class="hero">
   <div class="hero-grid">
     <div class="hero-text">
-      <div class="hero-eyebrow">Strategy · OD · Leadership Coaching</div>
+      <div class="hero-eyebrow">Headhunting & Management Consulting</div>
       <h1>
-        <span class="word w1">Four</span> <span class="word w2">decades</span><br>
-        <span class="word w3">of</span> <em><span class="word w4">making</span></em><br>
-        <span class="word w5">organisations</span> <span class="word w6">work.</span>
-        <span class="small">— a practitioner's craft, not a consultant's pitch.</span>
+        <span class="word w1">Strategic</span> <span class="word w2">insight.</span><br>
+        <span class="word w3">Exceptional</span> <em><span class="word w4">talent</span></em><br>
+        <span class="word w5">acquisition.</span>
+        <span class="small">— building leadership that drives organizations forward.</span>
       </h1>
       <p class="hero-lead">
-        Rajasekhar Kandepu is a Strategy, HR, IR & OD professional with a forty-year arc
-        across industry and academia — author of <em>Performance @ Results</em>, recipient
-        of the CHRO Innovation Award, and trusted adviser to boardrooms from
-        Hyderabad to Dubai.
+        Ridge Tower provides premier management consulting, specialized executive search, and headhunting services. We partner with boardrooms across India, Dubai, and Australia to optimize organizational performance and secure top-tier leadership.
       </p>
       <div class="hero-stats">
         <div class="stat">
@@ -822,68 +860,109 @@
     </div>
 
     <div class="hero-portrait">
-      <div class="portrait-frame">
-        <img id="portrait-img" alt="Rajasekhar Kandepu" />
-      </div>
-      <div class="portrait-tag">
-        <div class="tag-line1">Independent practitioner</div>
-        <div class="tag-line2">Strategy & Leadership Coach</div>
-      </div>
-      <div class="portrait-meta">
-        <div class="meta-mono">CHRO Innovation Award · 2023</div>
-        <div class="meta-text">For workplace reinvention — Bangalore Chapter, CHRO Confex.</div>
+      <div class="logo-container">
+        <img src="assets/images/logo.png" alt="Ridge Tower Logo" style="width:100%; max-width:400px; display:block; margin:auto;" />
       </div>
     </div>
   </div>
 </section>
 
-<!-- ABOUT -->
-<section class="about section-pad" id="about">
+<!-- PORTFOLIO -->
+<section class="portfolio section-pad" id="portfolio">
   <div class="container">
     <div class="section-head reveal">
-      <div class="section-eyebrow">The Practitioner</div>
-      <h2 class="section-title">A career built at the <em>intersection</em> of industry, academia, and human potential.</h2>
-      <p class="section-sub">From the foundry floor to the faculty room — and back again.</p>
+      <div class="section-eyebrow">Our Portfolio</div>
+      <h2 class="section-title">Specialized <em>practices</em> for strategic growth.</h2>
     </div>
 
-    <div class="about-cols reveal">
-      <div class="about-col">
-        <p>
-          Mr. Kandepu's professional journey traverses <strong>Construction, Engineering, Infrastructure
-          Development, Power & Energy, Education, Chemicals, Metro Rail, and Media</strong> — in India and
-          abroad. The thread that binds them is a steady conviction: that strategy and people are
-          one conversation, not two.
-        </p>
-        <p>
-          Across his career he has worked with <strong>Siemens India, the L&T Group, Vishnu Chemicals,
-          Shapoorji Pallonji Group</strong> in Muscat (Sultanate of Oman), and most recently spearheaded
-          Strategy, OD and Leadership Coaching at <strong>Power Mech Projects Limited</strong>, Hyderabad. In
-          academia, he played a founding role at KL University, particularly in establishing the
-          Strategy Framework for KLH Global Business School, Hyderabad.
-        </p>
-        <div class="pull-quote">
-          Talent acquisition is not a function but an art — it creates ample opportunity while
-          supporting business continuity.
+    <div class="portfolio-grid reveal-stagger">
+      <div class="portfolio-card">
+        <div class="portfolio-img">
+          <img src="assets/images/portfolio_1.png" alt="Management Consulting">
+        </div>
+        <div class="portfolio-content">
+          <h3>Management Consulting</h3>
+          <p>Comprehensive strategic advisory, policy formulation, and organizational transformation to drive competitive advantage and sustainable growth.</p>
         </div>
       </div>
-      <div class="about-col">
+      <div class="portfolio-card">
+        <div class="portfolio-img">
+          <img src="assets/images/portfolio_2.png" alt="CXO Selections - Headhunting">
+        </div>
+        <div class="portfolio-content">
+          <h3>CXO Selections — Headhunting</h3>
+          <p>Targeted and strategic recruitment for executive roles. We ensure minimal competition and highly relevant candidates for critical leadership positions.</p>
+        </div>
+      </div>
+      <div class="portfolio-card">
+        <div class="portfolio-img">
+          <img src="assets/images/portfolio_3.png" alt="Legal & Detective Services">
+        </div>
+        <div class="portfolio-content">
+          <h3>Legal & Detective Services</h3>
+          <p>Discreet investigations, compliance reviews, and employment law advisory to protect organizational integrity and mitigate risks.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TAT SECTION -->
+<section class="tat section-pad" id="tat">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">Training & Development</div>
+      <h2 class="section-title">TAT — Talent <em>Acquisition</em> Training.</h2>
+      <p class="section-sub">A comprehensive prospectus under the stewardship of Mr. Rajasekhar Kandepu.</p>
+    </div>
+
+    <div class="tat-layout reveal">
+      <div class="tat-sidebar">
+        <div class="tat-brand">
+           <span style="font-family:'JetBrains Mono', monospace; font-size: 2.5rem; color: var(--crimson); font-weight: bold;">TAT</span><br>
+           <span style="font-size: 0.8rem; letter-spacing: 0.1em; color: var(--ink);">TALENT ACQUISITION TRAINING</span>
+        </div>
+        <h3 style="margin-top:20px; font-family:'Fraunces', serif; color:var(--crimson); font-weight: 600;">PROSPECTUS</h3>
         <p>
-          A <strong>Motivational Speaker</strong> with over <strong>650+ sessions</strong> delivered in academia — covering
-          Student Affairs, Career Counselling and Youth Development — Mr. Kandepu has authored
-          numerous Knowledge Articles and conducted Industry Surveys, Compensation Benchmarking
-          Exercises, and Best Practice Studies in Human Resources and General Management.
+          "Talent Acquisition" serves as the cornerstone for organizations across all industries, including Manufacturing, IT-ITES, BPO, NGO, FMCG, Education, Engineering, Infrastructure, Automotive, Pharma, Media, Textile, Agriculture, F&B, Petrochemicals, Cement, Construction, Aerospace, and beyond. It is the primary function responsible for scouting, sourcing and recruiting knowledge-rich, skilled, experienced and behaviourally competent talent. This critical role ensures businesses stay competitive in dynamic markets by identifying and hiring the right talent at the right time.
         </p>
         <p>
-          He is a Certified <strong>Job Evaluation Professional</strong> from Mercer HR Consulting and a Certified
-          <strong>Case Writer in Teaching</strong> from ISB. His expertise in writing case studies — both factual and
-          hypothetical — has been recognised by XLRI Jamshedpur and IIM Ahmedabad.
+          With its emphasis on strategic negotiation and timely fulfillment of organizational needs, "Talent Acquisition" is not just a function but an art. It creates ample employment opportunities while supporting business continuity. Given its importance and demand across sectors, "Talent Acquisition" remains an evergreen and indispensable role, operating tirelessly 24/7 throughout the year.
         </p>
-        <p>
-          He is currently engaged independently as a Strategy Adviser & Leadership Coach,
-          pursuing initiatives across Leadership Development, Organisational Development, L&D,
-          Headhunting, and Productivity Optimisation, with assignments in India, Dubai and the
-          broader UAE/GCC region.
-        </p>
+        <div class="stewardship" style="margin-top:30px; padding:20px; background:var(--ink); color:var(--cream); text-align:center;">
+          <div style="margin-bottom:15px; font-style:italic;">Under the Stewardship of</div>
+          <h4 style="font-family:'Fraunces', serif; font-size:1.3rem; color:var(--gold); margin-bottom:5px;">Mr. Rajasekhar Kandepu</h4>
+          <p style="font-size:0.85rem; color:rgba(245,239,230,0.8);">- Strategy Adviser, Leadership & OD Coach</p>
+        </div>
+      </div>
+
+      <div class="tat-content">
+        <div class="tat-block">
+          <h4>CONVENTIONAL RECRUITMENT</h4>
+          <p>
+            Under the conventional recruitment approach, hiring for any position, regardless of its level, is managed as a standard requirement. Typically, this process is facilitated through "Placement Agency" model, where professional charges are standardized - commonly 8.33% of the Gross Salary or the CTC, as agreed mutually between the parties. While this method is widely used, it often faces challenges, with a higher scope for rejection rate due to less tailored matching of candidates to organizational needs/specs.
+          </p>
+        </div>
+        
+        <div class="tat-block">
+          <h4>EXECUTIVE SEARCH (Ex-Search)</h4>
+          <p>
+            Executive Search represents a more focused and strategic approach to sourcing and hiring, distinctively different from conventional recruitment. This method is typically employed for higher-level positions that demand strong assessment/ decision-making capabilities and leadership qualities, such as Unit Heads, Division Heads, or Vertical Heads.
+          </p>
+          <p>
+            Unlike conventional recruitment, Ex-Search involves a tailored process with limited but highly relevant responses. Candidates sourced through this method are almost guaranteed to rise to the final interview stage, ensuring minimal competition and an almost negligible rejection rate. Professional charges for Ex-Search are significantly higher than those in conventional recruitment reflecting the criticality and exclusivity of these roles.
+          </p>
+        </div>
+
+        <div class="tat-block">
+          <h4>HEADHUNTING</h4>
+          <p>
+            Headhunting is a person-targeted and strategic recruitment approach used for known, identified, or preferred candidates who are often directly assigned by the company or institution. This method focuses on influencing the potential recruit (recruitee) through personalized interactions, such as personal meetings/ dinner meets.
+          </p>
+          <p>
+            Acting as a catalyst, Headhunting aims to attract and secure the attention of the recruitee by building a strong rapport and influencing compelling opportunities. Since the recruitee is usually already known to the organization, the process involves wise efforts to finalize the hiring. Headhunting incurs significantly higher professional charges compared to other recruitment methods. Additionally, it often includes expenses for travel, accommodation, entertainment, incidental costs and any other context-specific necessities, making it a premium recruitment approach for strategic/ critical roles.
+          </p>
+        </div>
       </div>
     </div>
   </div>
