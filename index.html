@@ -952,31 +952,69 @@
 <!-- EXPERTISE -->
 
   <!-- FOUNDER PROFILE -->
+  <style>
+    .founder-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 80px;
+      align-items: center;
+    }
+    @media (max-width: 900px) {
+      .founder-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+    .founder-image img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 20px 40px -10px rgba(26,31,44,0.3);
+      filter: grayscale(20%) contrast(1.05);
+    }
+  </style>
   <section class="founder section-pad" id="founder" style="background: rgba(245,239,230,0.5);">
     <div class="container">
-      <div class="section-head reveal">
-        <div class="section-eyebrow">The Founder</div>
-        <h2 class="section-title">Rajasekhar <em>Kandepu</em>.</h2>
-        <p class="section-sub">A legacy of driving organizational transformation and securing top-tier leadership.</p>
-      </div>
-      
-      <div class="founder-stats reveal" style="display:flex;gap:42px;flex-wrap:wrap;padding-top:28px;border-top:1px solid rgba(26,31,44,0.15);">
-          <div class="stat">
-            <div class="stat-num"><em data-count="40">0</em>+</div>
-            <div class="stat-label">Years Experience</div>
+      <div class="founder-grid reveal-stagger">
+        
+        <div class="founder-image reveal" style="position: relative;">
+          <img src="assets/images/founder.png" alt="Rajasekhar Kandepu">
+        </div>
+        
+        <div class="founder-content reveal">
+          <div class="section-eyebrow">The Founder</div>
+          <h2 class="section-title" style="margin-bottom: 24px;">Rajasekhar <em>Kandepu</em>.</h2>
+          <p class="section-sub" style="margin-bottom: 32px; font-size: 1.1rem; line-height: 1.6; max-width: 100%;">
+            A legacy of driving organizational transformation, cultivating high-performance teams, and securing top-tier leadership.
+          </p>
+          <div class="founder-bio" style="font-family: 'Inter', sans-serif; font-size: 0.95rem; color: var(--muted); line-height: 1.7; margin-bottom: 40px;">
+            <p style="margin-bottom: 16px;">
+              As an esteemed Strategy Adviser, Leadership &amp; OD Coach, Mr. Rajasekhar brings over four decades of deep, cross-industry expertise. His distinguished career has been defined by his ability to architect performance management systems, steer complex HR integrations during mergers and acquisitions, and execute precision-driven executive searches for boardrooms across India, Dubai, and Australia.
+            </p>
+            <p>
+              His philosophy marries instrumented self-awareness with rigorous competency mapping, ensuring that organizations not only find the right talent but build resilient structures capable of thriving in dynamic markets.
+            </p>
           </div>
-          <div class="stat">
-            <div class="stat-num"><em data-count="650">0</em>+</div>
-            <div class="stat-label">Sessions Delivered</div>
+          
+          <div class="founder-stats" style="display:flex;gap:42px;flex-wrap:wrap;padding-top:28px;border-top:1px solid rgba(26,31,44,0.15);">
+              <div class="stat">
+                <div class="stat-num"><em data-count="40">0</em>+</div>
+                <div class="stat-label">Years Experience</div>
+              </div>
+              <div class="stat">
+                <div class="stat-num"><em data-count="650">0</em>+</div>
+                <div class="stat-label">Sessions Delivered</div>
+              </div>
+              <div class="stat">
+                <div class="stat-num"><em data-count="3">0</em></div>
+                <div class="stat-label">Continents</div>
+              </div>
+              <div class="stat">
+                <div class="stat-num"><em data-count="2">0</em></div>
+                <div class="stat-label">Books Authored</div>
+              </div>
           </div>
-          <div class="stat">
-            <div class="stat-num"><em data-count="3">0</em></div>
-            <div class="stat-label">Continents</div>
-          </div>
-          <div class="stat">
-            <div class="stat-num"><em data-count="2">0</em></div>
-            <div class="stat-label">Books Authored</div>
-          </div>
+        </div>
+
       </div>
     </div>
   </section>
