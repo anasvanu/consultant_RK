@@ -1357,11 +1357,14 @@
           <p>Productivity Optimization</p>
         </div>
       </div>
+      </div>
+      <div class="gallery-actions" style="text-align: center; margin-top: 48px;">
+        <button id="view-more-btn" class="btn" style="display: none; background: transparent; border: 1px solid var(--ink); color: var(--ink); padding: 12px 32px;">View All ▾</button>
+      </div>
     </div>
-  </div>
-</section>
-
-<!-- CLIENTS — RIBBONS -->
+  </section>
+  
+  <!-- CLIENTS — RIBBONS -->
 <section class="clients section-pad" id="clients">
   <svg class="ribbon-bg" viewBox="0 0 1600 300" preserveAspectRatio="none" aria-hidden="true">
     <path d="M -100 150 Q 200 50 400 150 T 800 150 T 1200 150 T 1700 150" />
@@ -1616,25 +1619,56 @@
   });
 
   // ===== Gallery Filter =====
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const galleryItems = document.querySelectorAll('.gallery-item');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    const viewMoreBtn = document.getElementById('view-more-btn');
+    let currentFilter = 'all';
+    let isExpanded = false;
+    const ITEMS_PER_FRAME = 3;
 
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const filter = btn.dataset.filter;
-      
+    function applyGalleryFilter() {
+      let matchCount = 0;
       galleryItems.forEach(item => {
         item.classList.remove('show');
-        if (filter === 'all' || item.classList.contains(filter)) {
-          setTimeout(() => item.classList.add('show'), 10);
+        const matches = currentFilter === 'all' || item.classList.contains(currentFilter);
+        if (matches) {
+          matchCount++;
+          if (isExpanded || matchCount <= ITEMS_PER_FRAME) {
+            // Need slight delay for animation re-trigger to work cleanly
+            setTimeout(() => item.classList.add('show'), 10);
+          }
         }
       });
-    });
-  });
+      
+      if (matchCount > ITEMS_PER_FRAME) {
+        viewMoreBtn.style.display = 'inline-flex';
+        viewMoreBtn.innerText = isExpanded ? 'View Less ▴' : 'View All ▾';
+      } else {
+        viewMoreBtn.style.display = 'none';
+      }
+    }
 
-  // ===== Reveal on scroll =====
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentFilter = btn.dataset.filter;
+        isExpanded = false;
+        applyGalleryFilter();
+      });
+    });
+
+    if (viewMoreBtn) {
+      viewMoreBtn.addEventListener('click', () => {
+        isExpanded = !isExpanded;
+        applyGalleryFilter();
+      });
+    }
+
+    // Initial apply
+    applyGalleryFilter();
+
+    // ===== Reveal on scroll =====
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
