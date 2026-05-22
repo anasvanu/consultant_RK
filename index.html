@@ -965,19 +965,58 @@
         gap: 40px;
       }
     }
+
     .founder-image img {
       width: 100%;
       border-radius: 12px;
       box-shadow: 0 20px 40px -10px rgba(26,31,44,0.3);
-      filter: grayscale(20%) contrast(1.05);
+      /* filter: grayscale(20%) contrast(1.05); */
+    }
+    .founder-slideshow {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4/5;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px -10px rgba(26,31,44,0.3);
+    }
+    .founder-slideshow img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 15%;
+      opacity: 0;
+      animation: founderCrossfade 20s infinite;
+      box-shadow: none;
+      border-radius: 0;
+    }
+    .founder-slideshow img:nth-child(1) { animation-delay: 0s; }
+    .founder-slideshow img:nth-child(2) { animation-delay: 5s; }
+    .founder-slideshow img:nth-child(3) { animation-delay: 10s; }
+    .founder-slideshow img:nth-child(4) { animation-delay: 15s; }
+
+    @keyframes founderCrossfade {
+      0%   { opacity: 0; transform: scale(1.0); }
+      10%  { opacity: 1; transform: scale(1.02); }
+      25%  { opacity: 1; transform: scale(1.05); }
+      35%  { opacity: 0; transform: scale(1.08); }
+      100% { opacity: 0; }
     }
   </style>
   <section class="founder section-pad" id="founder" style="background: rgba(245,239,230,0.5);">
     <div class="container">
       <div class="founder-grid reveal-stagger">
         
-        <div class="founder-image reveal" style="position: relative;">
-          <img src="assets/images/founder.png" alt="Rajasekhar Kandepu">
+        <div class="founder-image reveal">
+          <div class="founder-slideshow">
+            <img src="assets/images/founder1.png" alt="Rajasekhar Kandepu">
+            <img src="assets/images/gallery/engagements/eng-1.jpeg" alt="Rajasekhar speaking at engagement">
+            <img src="assets/images/gallery/workshops/workshop-3.jpeg" alt="Rajasekhar leading a workshop">
+            <img src="assets/images/gallery/sldp/sldp-1.jpeg" alt="Rajasekhar at SLDP event">
+          </div>
         </div>
         
         <div class="founder-content reveal">
