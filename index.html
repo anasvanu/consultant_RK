@@ -888,6 +888,145 @@
   </div>
 </section>
 
+<!-- FOUNDER PROFILE -->
+<style>
+  .founder-grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 80px;
+    align-items: center;
+  }
+  @media (max-width: 900px) {
+    .founder-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+
+  .founder-image img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px -10px rgba(26,31,44,0.3);
+  }
+  .founder-slideshow {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/5;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px -10px rgba(26,31,44,0.3);
+  }
+  .founder-slideshow img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 15%;
+    opacity: 0;
+    animation: founderCrossfade 18s infinite;
+    box-shadow: none;
+    border-radius: 0;
+  }
+  .founder-slideshow img:nth-child(1) { animation-delay: 0s; }
+  .founder-slideshow img:nth-child(2) { animation-delay: 6s; }
+  .founder-slideshow img:nth-child(3) { animation-delay: 12s; }
+
+  @keyframes founderCrossfade {
+    0%   { opacity: 0; transform: scale(1.0); }
+    12%  { opacity: 1; transform: scale(1.02); }
+    33%  { opacity: 1; transform: scale(1.05); }
+    45%  { opacity: 0; transform: scale(1.08); }
+    100% { opacity: 0; }
+  }
+</style>
+<section class="founder section-pad" id="founder" style="background: rgba(245,239,230,0.5);">
+  <div class="container">
+    <div class="founder-grid reveal-stagger">
+      
+      <div class="founder-image reveal">
+        <div class="founder-slideshow">
+          <img src="assets/images/founder1.png" alt="Rajasekhar Kandepu">
+          <img src="assets/images/gallery/engagements/eng-1.jpeg" alt="Rajasekhar lighting lamp">
+          <img src="assets/images/gallery/sldp/sldp-2.jpeg" alt="Rajasekhar at SLDP">
+        </div>
+      </div>
+      
+      <div class="founder-content reveal">
+        <div class="section-eyebrow">The Founder</div>
+        <h2 class="section-title" style="margin-bottom: 24px;">Rajasekhar <em>Kandepu</em>.</h2>
+        <p class="section-sub" style="margin-bottom: 32px; font-size: 1.1rem; line-height: 1.6; max-width: 100%;">
+          A legacy of driving organizational transformation, cultivating high-performance teams, and securing top-tier leadership.
+        </p>
+        <div class="founder-bio" style="font-family: 'Inter', sans-serif; font-size: 0.95rem; color: var(--muted); line-height: 1.7; margin-bottom: 40px;">
+          <p style="margin-bottom: 16px;">
+            As an esteemed Strategy Adviser, Leadership &amp; OD Coach, Mr. Rajasekhar brings over four decades of deep, cross-industry expertise. His distinguished career has been defined by his ability to architect performance management systems, steer complex HR integrations during mergers and acquisitions, and execute precision-driven executive searches for boardrooms across India, Dubai, and Australia.
+          </p>
+          <p>
+            His philosophy marries instrumented self-awareness with rigorous competency mapping, ensuring that organizations not only find the right talent but build resilient structures capable of thriving in dynamic markets.
+          </p>
+        </div>
+        
+        <div class="founder-stats" style="display:flex;gap:42px;flex-wrap:wrap;padding-top:28px;border-top:1px solid rgba(26,31,44,0.15);">
+            <div class="stat">
+              <div class="stat-num"><em data-count="40">0</em>+</div>
+              <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num"><em data-count="650">0</em>+</div>
+              <div class="stat-label">Sessions Delivered</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num"><em data-count="3">0</em></div>
+              <div class="stat-label">Continents</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num"><em data-count="2">0</em></div>
+              <div class="stat-label">Books Authored</div>
+            </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- LEADERSHIP DEVELOPMENT PROGRAMS -->
+<section class="programs section-pad" id="programs" style="background:var(--paper)">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">Training Programs</div>
+      <h2 class="section-title">Leadership Development <em>Programs</em>.</h2>
+      <p class="section-sub">Strategic interventions to prepare the next generation of leaders and upskill existing executives.</p>
+    </div>
+
+    <div class="portfolio-grid reveal-stagger">
+      <div class="portfolio-card">
+        <div class="portfolio-content">
+          <div style="font-family:'JetBrains Mono', monospace; font-size: 0.8rem; letter-spacing: 0.1em; color: var(--crimson); margin-bottom: 8px;">YLDP</div>
+          <h3>Young Leadership Development Program</h3>
+          <p>Focuses on nurturing, coaching, and mentoring potential employees. It prepares next-generation leaders through a series of experiential activities, in-tray exercises, and multi-disciplinary functional exposure in 30, 60, or 90-day modules. Top performers advance to an advanced "Champion of Champions" program at premier B-Schools.</p>
+        </div>
+      </div>
+      <div class="portfolio-card">
+        <div class="portfolio-content">
+          <div style="font-family:'JetBrains Mono', monospace; font-size: 0.8rem; letter-spacing: 0.1em; color: var(--crimson); margin-bottom: 8px;">SLDP</div>
+          <h3>Senior Leadership Development Program</h3>
+          <p>Aimed at Senior Leaders heading SBUs or Capability Centres, this 5-to-7 day program develops envisioning skills, strategic foresight, business analytics, and resilience. It focuses on handling unforeseen situations, building succession pipelines, and driving sustainable upward enhancements in both topline and bottomline growth.</p>
+        </div>
+      </div>
+      <div class="portfolio-card">
+        <div class="portfolio-content">
+          <div style="font-family:'JetBrains Mono', monospace; font-size: 0.8rem; letter-spacing: 0.1em; color: var(--crimson); margin-bottom: 8px;">TLDP</div>
+          <h3>Technical Leadership Development Program</h3>
+          <p>A specialized intervention focused on upscaling the formal leadership skills of technical professionals and project site heads. The prime objective is to cultivate leadership qualities for enhanced techno-management abilities, shaping "Competitively Fit" teams and aligning individual career growth with organizational business excellence.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- TAT SECTION -->
 <section class="tat section-pad" id="tat">
   <div class="container">
@@ -951,115 +1090,7 @@
 
 <!-- EXPERTISE -->
 
-  <!-- FOUNDER PROFILE -->
-  <style>
-    .founder-grid {
-      display: grid;
-      grid-template-columns: 0.8fr 1.2fr;
-      gap: 80px;
-      align-items: center;
-    }
-    @media (max-width: 900px) {
-      .founder-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-    }
 
-    .founder-image img {
-      width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 20px 40px -10px rgba(26,31,44,0.3);
-      /* filter: grayscale(20%) contrast(1.05); */
-    }
-    .founder-slideshow {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 4/5;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 20px 40px -10px rgba(26,31,44,0.3);
-    }
-    .founder-slideshow img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 15%;
-      opacity: 0;
-      animation: founderCrossfade 18s infinite;
-      box-shadow: none;
-      border-radius: 0;
-    }
-    .founder-slideshow img:nth-child(1) { animation-delay: 0s; }
-    .founder-slideshow img:nth-child(2) { animation-delay: 6s; }
-    .founder-slideshow img:nth-child(3) { animation-delay: 12s; }
-
-    @keyframes founderCrossfade {
-      0%   { opacity: 0; transform: scale(1.0); }
-      12%  { opacity: 1; transform: scale(1.02); }
-      33%  { opacity: 1; transform: scale(1.05); }
-      45%  { opacity: 0; transform: scale(1.08); }
-      100% { opacity: 0; }
-    }
-      10%  { opacity: 1; transform: scale(1.02); }
-      25%  { opacity: 1; transform: scale(1.05); }
-      35%  { opacity: 0; transform: scale(1.08); }
-      100% { opacity: 0; }
-    }
-  </style>
-  <section class="founder section-pad" id="founder" style="background: rgba(245,239,230,0.5);">
-    <div class="container">
-      <div class="founder-grid reveal-stagger">
-        
-        <div class="founder-image reveal">
-          <div class="founder-slideshow">
-            <img src="assets/images/founder1.png" alt="Rajasekhar Kandepu">
-            <img src="assets/images/gallery/engagements/eng-1.jpeg" alt="Rajasekhar lighting lamp">
-            <img src="assets/images/gallery/sldp/sldp-2.jpeg" alt="Rajasekhar at SLDP">
-          </div>
-        </div>
-        
-        <div class="founder-content reveal">
-          <div class="section-eyebrow">The Founder</div>
-          <h2 class="section-title" style="margin-bottom: 24px;">Rajasekhar <em>Kandepu</em>.</h2>
-          <p class="section-sub" style="margin-bottom: 32px; font-size: 1.1rem; line-height: 1.6; max-width: 100%;">
-            A legacy of driving organizational transformation, cultivating high-performance teams, and securing top-tier leadership.
-          </p>
-          <div class="founder-bio" style="font-family: 'Inter', sans-serif; font-size: 0.95rem; color: var(--muted); line-height: 1.7; margin-bottom: 40px;">
-            <p style="margin-bottom: 16px;">
-              As an esteemed Strategy Adviser, Leadership &amp; OD Coach, Mr. Rajasekhar brings over four decades of deep, cross-industry expertise. His distinguished career has been defined by his ability to architect performance management systems, steer complex HR integrations during mergers and acquisitions, and execute precision-driven executive searches for boardrooms across India, Dubai, and Australia.
-            </p>
-            <p>
-              His philosophy marries instrumented self-awareness with rigorous competency mapping, ensuring that organizations not only find the right talent but build resilient structures capable of thriving in dynamic markets.
-            </p>
-          </div>
-          
-          <div class="founder-stats" style="display:flex;gap:42px;flex-wrap:wrap;padding-top:28px;border-top:1px solid rgba(26,31,44,0.15);">
-              <div class="stat">
-                <div class="stat-num"><em data-count="40">0</em>+</div>
-                <div class="stat-label">Years Experience</div>
-              </div>
-              <div class="stat">
-                <div class="stat-num"><em data-count="650">0</em>+</div>
-                <div class="stat-label">Sessions Delivered</div>
-              </div>
-              <div class="stat">
-                <div class="stat-num"><em data-count="3">0</em></div>
-                <div class="stat-label">Continents</div>
-              </div>
-              <div class="stat">
-                <div class="stat-num"><em data-count="2">0</em></div>
-                <div class="stat-label">Books Authored</div>
-              </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
 
 <section class="expertise section-pad" id="expertise">
   <div class="container">
