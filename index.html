@@ -1613,11 +1613,11 @@
         </div>
         <div class="contact-row">
           <div class="contact-label">Email</div>
-          <div class="contact-value"><a href="mailto:rajkandepu@gmail.com">rajkandepu@gmail.com</a></div>
+          <div class="contact-value"><a href="mailto:rajkandepu@ridgetowerconsulting.com">rajkandepu@ridgetowerconsulting.com</a></div>
         </div>
         <div class="contact-row">
           <div class="contact-label">Alt. Email</div>
-          <div class="contact-value"><a href="mailto:rajkandepu65@hotmail.com">rajkandepu65@hotmail.com</a></div>
+          <div class="contact-value"><a href="mailto:rajkandepu@gmail.com">rajkandepu@gmail.com</a></div>
         </div>
         <div class="contact-row">
           <div class="contact-label">Practice</div>
@@ -1632,7 +1632,9 @@
       <div class="form-card reveal">
         <h3>Send a note.</h3>
         <p class="form-sub">— I read every message personally.</p>
-        <form id="contact-form" novalidate>
+        <form id="contact-form" action="https://formsubmit.co/rajkandepu@ridgetowerconsulting.com" method="POST" novalidate>
+          <input type="hidden" name="_next" value="https://ridgetowerconsulting.com/#contact">
+          <input type="hidden" name="_captcha" value="false">
           <div class="form-row">
             <div class="form-field">
               <label for="name">Full Name</label>
@@ -1813,9 +1815,7 @@
 
   // ===== Form handler =====
   const form = document.getElementById('contact-form');
-  const success = document.getElementById('form-success');
   form.addEventListener('submit', (e) => {
-    e.preventDefault();
     const fields = ['name','email','message'];
     let valid = true;
     fields.forEach(f => {
@@ -1825,41 +1825,14 @@
         valid = false;
       }
     });
-    if (!valid) return;
+    if (!valid) {
+      e.preventDefault();
+      return;
+    }
 
     // Change the button text while submitting
     const submitBtn = form.querySelector('.form-submit');
-    const originalBtnText = submitBtn.innerHTML;
     submitBtn.innerHTML = 'Sending...';
-
-    const formData = new FormData(form);
-    // Add your Web3Forms Access Key here:
-    formData.append("access_key", "YOUR_WEB3FORMS_ACCESS_KEY_HERE");
-    formData.append("subject", "New Submission from Rajasekhar Kandepu Website");
-
-    fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        body: formData
-    })
-    .then(async (response) => {
-        let json = await response.json();
-        if (response.status == 200) {
-            success.classList.add('show');
-            form.reset();
-            success.scrollIntoView({behavior:'smooth', block:'center'});
-            setTimeout(() => success.classList.remove('show'), 8000);
-        } else {
-            console.log(response);
-            alert("Error: " + json.message);
-        }
-    })
-    .catch(error => {
-        console.log(error);
-        alert("Something went wrong! Please try again later.");
-    })
-    .finally(() => {
-        submitBtn.innerHTML = originalBtnText;
-    });
   });
 </script>
 
